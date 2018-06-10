@@ -10,8 +10,9 @@ use Illuminate\Auth\Middleware\Authenticate;
 use \Illuminate\Contracts\Auth\Factory as Auth;
 use Psr\Http\Message\ServerRequestInterface;
 use Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory;
+use Siewwp\LaravelServiceHost\Contracts\AuthenticateClient as AuthenticateClientContract;
 
-class AuthenticateClient extends Authenticate
+class AuthenticateClient extends Authenticate implements AuthenticateClientContract
 {
     protected $serverRequest;
 
