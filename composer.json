@@ -10,11 +10,9 @@
         }
     ],
     "require": {
-        "guzzlehttp/guzzle": "^6.3",
-        "acquia/http-hmac-php": "^4.0",
         "symfony/psr-http-message-bridge": "~1.0",
         "zendframework/zend-diactoros": "^1.7",
-        "siewwp/laravel-service-consumer": "dev-master"
+        "siewwp/php-hmac-http": "dev-master"
     },
     "require-dev": {
         "illuminate/auth": "~5.4",

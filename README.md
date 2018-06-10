@@ -23,7 +23,7 @@ php artisan migrate
 run the command below on console to create host 
 
 ```
-php artisan make:service-consumer {name} {webhook_url}
+php artisan service-host:client {name} {webhook_url}
 ```
 
 

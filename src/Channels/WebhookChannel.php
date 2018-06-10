@@ -6,7 +6,7 @@ namespace Siewwp\LaravelServiceHost;
 use Acquia\Hmac\KeyInterface;
 use RuntimeException;
 use Illuminate\Notifications\Notification;
-use Siewwp\LaravelServiceConsumer\HttpClient;
+use Siewwp\HmacHttp\HttpClient;
 
 class WebhookChannel
 {
@@ -16,7 +16,7 @@ class WebhookChannel
      * @param  mixed $notifiable
      * @param  \Illuminate\Notifications\Notification $notification
      * @return void
-     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function send($notifiable, Notification $notification)
     {
