@@ -7,7 +7,7 @@ use Acquia\Hmac\Key;
 use Acquia\Hmac\ResponseSigner;
 use Closure;
 use Illuminate\Auth\Middleware\Authenticate;
-use Illuminate\Support\Facades\Auth;
+use \Illuminate\Contracts\Auth\Factory as Auth;
 use Psr\Http\Message\ServerRequestInterface;
 use Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory;
 
