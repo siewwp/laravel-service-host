@@ -19,8 +19,10 @@ class CreateServiceHostTable extends Migration
             $table->increments('id');
             $table->string('secret', 100);
             $table->string('name');
-            $table->string('webhook_url');
+            $table->string('webhook_url')
+                ->nullable();
             $table->boolean('revoked');
+                ->default(false);
             $table->timestamps();
         });
     }
