@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Notifications;
+namespace Siewwp\LaravelServiceHost\Notifications;
 
-use Siewwp\LaravelServiceHost\WebhookChannel;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Siewwp\LaravelServiceHost\Channels\WebhookChannel;
 
 class ClientNotification extends Notification implements ShouldQueue
 {
