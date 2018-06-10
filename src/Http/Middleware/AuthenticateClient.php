@@ -9,6 +9,7 @@ use Closure;
 use Illuminate\Auth\Middleware\Authenticate;
 use \Illuminate\Contracts\Auth\Factory as Auth;
 use Psr\Http\Message\ServerRequestInterface;
+use Siewwp\LaravelServiceHost\Client;
 use Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory;
 use Siewwp\LaravelServiceHost\Contracts\AuthenticateClient as AuthenticateClientContract;
 
@@ -47,11 +48,11 @@ class AuthenticateClient extends Authenticate implements AuthenticateClientContr
         $response = $next($request);
 
         $response = (new DiactorosFactory)->createResponse($response);
-
-        $client = $request->user($guard);
-        $key = new Key($client->id, $client->token);
         
-        $signer = new ResponseSigner($key, $this->serverRequest);
+        /** @var Client $client */
+        $client = $request->user($guard);
+        
+        $signer = new ResponseSigner($client->hmac_key, $this->serverRequest);
 
         return $signer->signResponse($response);
     }
