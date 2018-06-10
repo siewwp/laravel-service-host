@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Siewwp\LaravelServiceHost;
+namespace Siewwp\LaravelServiceHost\Channels;
 
 use Acquia\Hmac\KeyInterface;
 use RuntimeException;

@@ -1,3 +1,5 @@
+# Laravel service host
+
 ## Installation
 
 ```
@@ -34,7 +36,7 @@ php artisan service-host:client {name} {webhook_url}
 
 Add clients user provider in your `auth.php` configuration file.
 
-```
+```php
 'providers' => [
     'clients' => [
         'driver' => 'eloquent',
@@ -45,7 +47,7 @@ Add clients user provider in your `auth.php` configuration file.
 
 Finally, you may use this provider in your guards configuration:
 
-```
+```php
 'guards' => [
     'client' => [
         'driver' => 'service-host',
@@ -54,19 +56,37 @@ Finally, you may use this provider in your guards configuration:
 ],
 ```
 
-### Webhook
 
+### Sending a webhook notification
 
+To send notification, create a notification and specify `WebhookChannel::class` like below:
 
-migration
+```php
+<?php
 
-webhook
+namespace App\Notifications;
 
-laravel-service-host
-includes abstract HttpClient and abstract middleware
-consumer notification
-guard
+use Illuminate\Notifications\Notification;
+use Siewwp\LaravelServiceHost\Channels\WebhookChannel;
 
-shared-service-host
+class InvoicePaid extends Notification
+{
+    public function via($notifiable)
+    {
+        return [WebhookChannel::class];
+    }
+    
+    public function toWebhook($notifiable)
+    {
+        return [
+            // ...
+        ];
+    }
+    
+    // ...
+}
+```
 
-shared service tenant seeder
+## TODO
+
+TEST
