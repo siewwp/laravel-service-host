@@ -33,6 +33,6 @@ class Client extends Model implements ClientContract
 
     public function getHmacKeyAttribute()
     {
-        return new Key($this->id, $this->token);
+        return new Key($this->id, $this->secret);
     }
 }
