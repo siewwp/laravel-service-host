@@ -35,7 +35,7 @@ class ServiceHostServiceProvider extends ServiceProvider
             $timestamp = date('Y_m_d_His', time());
 
             $this->publishes([
-                __DIR__.'/../database/migrations/create_service_host_table.php' => $this->app->databasePath()."/migrations/{$timestamp}_create_service_host_table.php",
+                __DIR__.'/../database/migrations/create_service_host_table.php.stub' => $this->app->databasePath()."/migrations/{$timestamp}_create_service_host_table.php",
             ], 'migrations');
         }
     }
