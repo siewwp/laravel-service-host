@@ -20,14 +20,12 @@ class WebhookChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        if (!$url = $this->getWebhookUrl($notifiable, $notification)
-            || $key = $this->getHmacKey($notifiable, $notification)) {
-            return;
+        if (($url = $this->getWebhookUrl($notifiable, $notification))
+            && ($key = $this->getHmacKey($notifiable, $notification))) {
+            (new HttpClient([], $key))->request('post', $url, $this->buildJsonPayload(
+                $notifiable, $notification
+            ));
         }
-        
-        (new HttpClient([], $key))->request('post', $url, $this->buildJsonPayload(
-            $notifiable, $notification
-        ));
     }
 
     protected function getWebhookUrl($notifiable, $notification)
