@@ -58,7 +58,7 @@ class HostGuard implements Guard
             
             $this->client = $client = $client::findOrFail($authorizationHeader->getId());
             
-            $keyLoader = new KeyLoader([$client->id => $client->token]);
+            $keyLoader = new KeyLoader([$client->id => $client->secret]);
 
             $authenticator = new RequestAuthenticator($keyLoader);
 
