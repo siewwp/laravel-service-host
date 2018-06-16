@@ -29,6 +29,7 @@
             ]
         }
     },
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Siewwp\\LaravelServiceHost\\": "src/"
