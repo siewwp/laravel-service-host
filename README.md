@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-composer require siewwp/laravel-service-host:dev-master
+composer require siewwp/laravel-service-host:^1.0.0
 ```
 
 Publish service host config 
